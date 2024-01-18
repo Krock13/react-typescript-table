@@ -1,0 +1,28 @@
+{
+  "name": "react-typescript-table",
+  "version": "1.2.5",
+  "description": "A highly customizable, sortable, and filterable table component for React applications.",
+  "main": "TableComponent.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "krock13",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "table",
+    "component",
+    "sortable",
+    "filterable",
+    "pagination",
+    "typescript"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.2.47",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
