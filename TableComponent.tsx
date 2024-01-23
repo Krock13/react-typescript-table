@@ -128,6 +128,12 @@ export const TableComponent = <T extends Record<string, unknown>>({
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent, field: keyof T) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleSort(field);
+    }
+  };
+
   return (
     <div>
       <div className={styles.tableControlsWrapper}>
@@ -151,11 +157,28 @@ export const TableComponent = <T extends Record<string, unknown>>({
           <input type='text' placeholder='Search...' value={search} onChange={handleSearch} />
         </div>
       </div>
-      <table className={styles.table}>
+      <table className={styles.table} aria-labelledby='tableTitle' role='grid'>
+        <caption id='tableTitle' className={styles.visuallyHidden}>
+          Table of Data
+        </caption>
         <thead>
           <tr>
             {columns.map((col, index) => (
-              <th className={styles.th} key={index} onClick={() => handleSort(col.field)}>
+              <th
+                className={styles.th}
+                key={index}
+                tabIndex={0}
+                onClick={() => handleSort(col.field)}
+                onKeyDown={(e) => handleKeyDown(e, col.field)}
+                scope='col'
+                aria-sort={
+                  sortedColumn === col.field
+                    ? sortDirection === 'asc'
+                      ? 'ascending'
+                      : 'descending'
+                    : 'none'
+                }
+              >
                 {col.title}
                 {sortedColumn === col.field && (sortDirection === 'asc' ? ' 🔼' : ' 🔽')}
               </th>
@@ -182,7 +205,7 @@ export const TableComponent = <T extends Record<string, unknown>>({
         </div>
         <div className={styles.paginationButtons}>
           <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
-            Précédent
+            Previous
           </button>
           <input
             type='number'
@@ -192,7 +215,7 @@ export const TableComponent = <T extends Record<string, unknown>>({
             max={lastPage}
           />
           <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === lastPage}>
-            Suivant
+            Next
           </button>
         </div>
       </div>

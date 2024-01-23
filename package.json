@@ -1,6 +1,6 @@
 {
   "name": "react-typescript-table",
-  "version": "1.2.5",
+  "version": "1.3.2",
   "description": "A highly customizable, sortable, and filterable table component for React applications.",
   "main": "TableComponent.tsx",
   "scripts": {
