@@ -140,7 +140,11 @@ export const TableComponent = <T extends Record<string, unknown>>({
         <div className={styles.entriesControl}>
           <p>
             Show
+            <label htmlFor='entries-per-page' className={styles.visuallyHidden}>
+              Entries Per Page
+            </label>
             <select
+              id='entries-per-page'
               value={entriesPerPage}
               onChange={(e) => setEntriesPerPage(Number(e.target.value))}
             >
@@ -208,6 +212,7 @@ export const TableComponent = <T extends Record<string, unknown>>({
             Previous
           </button>
           <input
+            aria-label='Current page'
             type='number'
             value={currentPage}
             onChange={(e) => goToPage(Math.max(1, Math.min(lastPage, Number(e.target.value))))}
