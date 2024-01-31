@@ -82,6 +82,15 @@ const data: MyDataType[] = [
 
 The appearance and functionality of the TableComponent can be customized through CSS and additional prop settings. Please refer to the provided CSS module for styling options.
 
+## Example Project
+
+To see the `TableComponent` in action, check out the HRnet application. This project is a real-world example of how the `TableComponent` can be integrated into a React application for managing employee records.
+
+Explore the HRnet project on GitHub:
+[HRnet: Employee Management Application](https://github.com/Krock13/Wealth-Health_Front_React)
+
+The HRnet project demonstrates the use of `TableComponent` within the context of a larger application, showcasing the component's features like sorting, filtering, and pagination in a live setting.
+
 ## Contributing
 
 Contributions to improve TableComponent are welcome. Please submit issues and pull requests on the repository page.
